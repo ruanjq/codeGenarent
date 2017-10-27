@@ -30,6 +30,7 @@ gulp.task('bundle', function() {
 
 gulp.task('watch', function() {
     gulp.watch(['css/*.less'],['less']);
+    gulp.watch(['lib/*.js'],['bundle']);
 });
 
 gulp.task('default', ['less','bundle']);

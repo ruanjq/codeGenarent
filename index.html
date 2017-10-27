@@ -5,13 +5,12 @@
     <base href="/codeGenarent">
     <title>图片区域代码生成工具</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta content="图片区域代码生成工具" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/7.0.0/normalize.css">
-    <link rel="stylesheet" type="text/css" href="codeGenarent/css/style.min.css">
-    <script type="text/javascript" src="codeGenarent/dist/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="codeGenarent/dist/plugins.js"></script>
+    <link rel="stylesheet" type="text/css" href="codeGenarent/css/style.min.css?v=20171027">
+    <script type="text/javascript" src="codeGenarent/dist/jquery-1.7.2.min.js?v=20171027"></script>
+    <script type="text/javascript" src="codeGenarent/dist/plugins.js?v=20171027"></script>
 </head>
 <body>
     <script type="text/javascript">
@@ -27,7 +26,7 @@
                     var platformDiv = document.createElement("div");
                     platformDiv.classList = "platform-error J_stop_scroll";
                     platformDiv.id = "J_mobile";
-                    platformDiv.innerHTML = '<h1 class="text-err">请在Google Chrome 浏览器中按F12移动端调试模式,选择iphone6 设备使用!!!</h1>';
+                    platformDiv.innerHTML = '<h1 class="text-err">为防止操作错误,请在Google Chrome 浏览器中按F12移动端调试模式,选择iphone6 设备使用!!!</h1>';
                     document.body.appendChild(platformDiv);
                 }else{
                      document.getElementById("J_mobile").style.display = "flex";
@@ -40,7 +39,7 @@
         }
     </script>
     <div class="app-list J_stop_scroll" id="J_app_list">
-        <h2 class="title">请选择一个应用</h2>
+        <h2 class="title">请选择应用</h2>
         <ul class="clearfix">
             <li class="J_app" data-size="37.5">
                 <img src="codeGenarent/images/rw.jpg">
@@ -55,7 +54,7 @@
                 <img src="codeGenarent/images/zaful.jpg">
             </li>
         </ul>
-        <div class="introduce J_read">使用说明</div>
+        <div class="introduce J_read"><i class="question">?</i>使用帮助</div>
     </div>
     <div class="main-app-wrap" id="J_main_wrap">
        <div class="main-app" id="J_form_panel">
@@ -69,7 +68,7 @@
                        <label class="form-label">跳转链接</label>
                        <input class="form-input" id="J_link" value="" type="text" name="" placeholder="请输入跳转链接">
                    </div>
-                   <div class="form-group clearfix">
+                   <div class="form-group clearfix disabled J_disabled">
                        <div class="fl col-50">
                            <label class="form-label">链接区域</label>
                            <div class="radio clip-radio radio-primary radio-inline">
@@ -92,7 +91,7 @@
                 
                    <div class="form-group">
                        <div class="fl col-50 pr-10">
-                           <button type="button" id="J_copy_code" class="btn btn-primary2 btn-block J_copy_code" data-clipboard-text="">复制代码</button>
+                           <button type="button" id="J_copy_code" class="btn btn-primary2 btn-block" data-clipboard-text="">复制代码</button>
                            
                        </div>
                        <div class="fr col-50 pl-10">
@@ -117,23 +116,26 @@
            <img  alt="banner" class="J_banner" onload="this.style.opacity='1'" style="width: 100%;display: block;">
        </div>    
     </div>
+    <span class="use-help J_read"><i class="question">?</i>使用帮助</span>
     <div class="article-block J_stop_scroll J_article">
         <span class="close J_close">+</span>
         <article>
             <h2 class="text-center">头部代码工具使用说明</h2>
-            <p class="fs-14">1: 使用Google Chrome 浏览器打开页面，按住F12键进入开发者调试模式，并使用移动端调试模式，切换当前设备模式为<span class="text-err">iphone6</span>。</p>
-            <p class="fs-14"><span class="text-err">2: 目前该工具只支持以下几个平台Yoshop m版、Zaful m版、Rosewholesale m版、Twinkledeals m版。</span></p>
-            <p class="fs-14">3: 选择一个应用程序，进入代码生成界面。</p>
-            <p class="fs-14">4: 在图片地址输入框中输入图片的http 地址链接，等待图片加载完成。</p>
-            <p class="fs-14">5: 鼠标拖动图片上的区块，并缩放区块宽度和高度，将区块移动到对应的位置，可设置区块的形状，为方形和圆形，也可对区块进行旋转操作,<span class="text-err">不可将区块位置移动到图片之外的范围</span></p>
-            <p class="fs-14">6: 在跳转链接输入框中输入区块的跳转链接。</p>
-            <p class="fs-14">7: 点击添加链接按钮，即可成功生成链接，多次点击可生成多个链接，生成成功后可看到红色半透明的区域。</p>
-            <p class="fs-14 text-err">7: 单击生成成功的红色半透明的区域可删除该区域链接，重新生成。</p>
-            <p class="fs-14">9: 所有区块链接生成成功后，点击[复制代码]按钮，提示代码复制成功，即可复制到网站的后台添加代码测试。</p>
-            <p class="fs-14">10: 如对工具使用有疑问，请RTX咨询技术 <span class="text-err">阮继潜</span>。</p>
+            <p class="fs-13">1: 使用Google Chrome 浏览器打开页面，按住F12键进入开发者调试模式，并使用移动端调试模式，切换当前设备模式为<span class="text-err">iphone6</span>。</p>
+            <p class="fs-13"><span class="text-err">2: 目前仅支持以下几个平台Yoshop m版、Zaful m版、Rosewholesale m版、Twinkledeals m版。</span></p>
+            <p class="fs-13">3: 选择应用程序，进入代码生成界面。</p>
+            <p class="fs-13">4: 在图片地址输入框中输入图片的http 地址链接，等待图片加载完成<span class="text-err">支持gif,jpg,jpeg.png,webp等多种图片格式</span>。</p>
+            <p class="fs-13 text-err">5:图片文件大小不可过大，否则影响网页加载速度，尽量控制在500KB之内</p>
+            <p class="fs-13">6: 鼠标拖动图片上的区块，并缩放区块宽度和高度，将区块移动到对应的位置，可设置区块的形状，为方形和圆形，也可对区块进行旋转操作,<span class="text-err">不可将区块位置移动到图片之外的范围</span></p>
+            <p class="fs-13">7: 在跳转链接输入框中输入区块的跳转链接。</p>
+            <p class="fs-13">8: 点击添加链接按钮，即可成功生成链接，多次点击可生成多个链接，生成成功后可看到红色半透明的区域。</p>
+            <p class="fs-13 text-err">9: 单击生成成功的红色半透明的区域可删除该区域链接，重新生成。</p>
+            <p class="fs-13">10: 所有区块链接生成成功后，<span class="text-err">点击[复制代码]按钮</span>，提示代码复制成功，即可复制到网站的后台添加代码测试。</p>
+            <p class="fs-13">11: 如对工具使用有疑问，请<span class="text-err">RTX咨询技术阮继潜</span>。</p>
         </article>
     </div>
-    <script type="text/javascript" src="codeGenarent/dist/main.js"></script>
+    
+    <script type="text/javascript" src="codeGenarent/dist/main.js?v=20171027"></script>
 </body>
 
 </html>
