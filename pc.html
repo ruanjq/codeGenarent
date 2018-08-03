@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="platform-pc">
+<html lang="zh-CN" class="platform-pc J_pc">
 
 <head>
     <base href="/codeGenarent">
@@ -8,101 +8,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta content="图片链接代码生成工具" />
-    <link rel="stylesheet" type="text/css" href="codeGenarent/css/style.min.css?v=2017102704">
-    <script type="text/javascript" src="codeGenarent/dist/jquery-1.7.2.min.js?v=2017102704"></script>
-    <!-- <script type="text/javascript" src="codeGenarent/dist/plugins.js?v=2017102704"></script> -->
-    <script type="text/javascript" src="codeGenarent/dist/julyui.drag.min.js"></script>
-    <script type="text/javascript" src="codeGenarent/dist/julyui.dragResize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="codeGenarent/css/style.min.css?v=2018080301">
+    <script type="text/javascript" src="codeGenarent/dist/jquery-1.7.2.min.js?v=2018080301"></script>
+    <script type="text/javascript" src="codeGenarent/dist/plugins.js?v=2018080301"></script>
 </head>
 
 <body>
-    <script type="text/javascript">
-    /*window.onresize = function() {
-        setTimeout(function() {
-            platformCheck();
-        })
-    }
-    platformCheck();
-
-    function platformCheck() {
-        if (navigator.userAgent.indexOf('iPhone') > 0) {
-            if (!document.getElementById("J_mobile")) {
-                var platformDiv = document.createElement("div");
-                platformDiv.classList = "platform-error J_stop_scroll";
-                platformDiv.id = "J_mobile";
-                platformDiv.innerHTML = '<h1 class="text-err">不支持在移动端浏览器中使用!!!</h1>';
-                document.body.appendChild(platformDiv);
-            } else {
-                document.getElementById("J_mobile").style.display = "flex";
-            }
-        } else {
-            if (document.getElementById("J_mobile")) {
-                document.getElementById("J_mobile").style.display = "none";
-            }
-        }
-    }*/
-    </script>
-    <!-- <div class="app-list J_stop_scroll" id="J_app_list">
-        <h2 class="title">请选择应用</h2>
-        <ul class="clearfix">
-            <li class="J_app" data-size="37.5">
-                <img src="codeGenarent/images/rw.jpg">
-            </li>
-            <li class="J_app" data-size="37.5">
-                <img src="codeGenarent/images/td.jpg">
-            </li>
-            <li class="J_app" data-size="37.5">
-                <img src="codeGenarent/images/ys.jpg">
-            </li>
-            <li class="J_app" data-size="37.5">
-                <img src="codeGenarent/images/zaful.jpg">
-            </li>
-        </ul>
-        <div class="introduce J_read"><i class="question">?</i>使用帮助</div>
-    </div> -->
-    <div class="main-app-wrap" id="J_main_wrap">
-        <div class="main-app" id="J_form_panel">
-            <div class="form-wrap">
-                <form>
-                    <div class="form-group">
-                        <label class="form-label">图片地址</label>
-                        <input class="form-input" id="J_img_src" value="https://uidesign.rowcdn.com/RW/image/promotion/20171024_1172/en_1200x535.jpg" type="text" name="" placeholder="请输入图片链接地址">
-                    </div>
-                    <div class="form-group clearfix">
-                        <label class="form-label">跳转链接</label>
-                        <input class="form-input" id="J_link" value="" type="text" name="" placeholder="请输入跳转链接">
-                    </div>
-                    <div class="form-group clearfix disabled J_disabled">
-                        <div class="col-50">
-                            <label class="form-label">链接区域</label>
-                            <div class="radio clip-radio radio-primary radio-inline">
-                                <input type="radio" id="radio1" checked name="shape" value="1">
-                                <label for="radio1">
-                                    方形
-                                </label>
-                                <input type="radio" id="radio2" name="shape" value="0">
-                                <label for="radio2">
-                                    圆形
-                                </label>
+    <div class="tool-wrap J_tool_wrap">
+        <span class="close tool-close J_close_tool">+</span>
+        <div class="main-app-wrap" id="J_main_wrap">
+            <div class="main-app" id="J_form_panel">
+                <div class="form-wrap">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">图片地址</label>
+                            <input class="form-input" id="J_img_src" value="https://uidesign.rowcdn.com/RW/image/promotion/20171024_1172/en_1200x535.jpg" type="text" name="" placeholder="请输入图片链接地址">
+                        </div>
+                        <div class="form-group clearfix">
+                            <label class="form-label">跳转链接</label>
+                            <input class="form-input" id="J_link" value="" type="text" name="" placeholder="请输入跳转链接">
+                        </div>
+                        <div class="form-group clearfix disabled J_disabled">
+                            <div class="col-50 fl">
+                                <label class="form-label">链接区域</label>
+                                <div class="radio clip-radio radio-primary radio-inline">
+                                    <input type="radio" id="radio1" checked name="shape" value="1">
+                                    <label for="radio1">
+                                        方形
+                                    </label>
+                                    <input type="radio" id="radio2" name="shape" value="0">
+                                    <label for="radio2">
+                                        圆形
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-50 is-blank-form fl">
+                            
+                                <label class="form-label" for="J_blank_forward">新窗口跳转</label>
+                                <span class="checkbox-wrap">
+                                    <input type="checkbox" id="J_blank_forward" class="chk_3" /><label for="J_blank_forward"></label>
+                                </span>
+                                
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group rotate-form-group">
-                        <div class="col-50 rotate-wrap">
-                            <label class="form-label">旋转角度 <i id="J_rotate" class="fs-12 color-primary">(0)</i> <span class="text-err fs-12 reset-rotate" id="J_reset">还原</span></label>
-                            <input type="range" name="" id="rangeRotate" min="-180" max="180" step="1" />
+                        <div class="form-group rotate-form-group">
+                            <div class="col-50 rotate-wrap">
+                                <label class="form-label">旋转角度 <i id="J_rotate" class="fs-12 color-primary">(0)</i> <span class="text-err fs-12 reset-rotate" id="J_reset">还原</span></label>
+                                <input type="range" name="" id="rangeRotate" min="-180" max="180" step="1" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group copy-form-group">
-                        <button type="button" id="J_copy_code" class="btn btn-primary2 btn-block" data-clipboard-text="">复制代码</button>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" id="J_add_link" class="btn btn-primary btn-block">添加链接</button>
-                    </div>
-                </form>
+
+                        
+                        <div class="form-group copy-form-group">
+                            <button type="button" id="J_copy_code" class="btn btn-primary2 btn-block" data-clipboard-text="">复制代码</button>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" id="J_add_link" class="btn btn-primary btn-block">添加链接</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+        
+        
     </div>
+
+    <div class="article-block J_stop_scroll J_article">
+        <span class="close J_close">+</span>
+        <article>
+            <h2 class="text-center">头部代码工具使用说明 <strong class="text-err">(pc平台)</strong></h2>
+            <p class="fs-13">1: <span class="text-err">设计师提供的图片尺寸宽度必须为1200，高度可不固定。</span></p>
+            <p class="fs-13">2: 在图片地址输入框中输入图片的http 地址链接，等待图片加载完成，<span class="text-err">支持 gif,jpg,jpeg.png,webp等多种图片格式</span>。</p>
+            <p class="fs-13 text-err">5:图片文件大小不可过大，否则影响网页加载速度，尽量控制在500KB之内</p>
+            <p class="fs-13">3: 鼠标拖动图片上的区块，并缩放区块宽度和高度，将区块移动到对应的位置，可设置区块的形状，为方形和圆形，也可对区块进行旋转操作,<span class="text-err">不可将区块位置移动到图片之外的范围</span></p>
+            <p class="fs-13">4: 在跳转链接输入框中输入区块的跳转链接。</p>
+            <p class="fs-13">5: 点击添加链接按钮，即可成功生成链接，多次点击可生成多个链接，生成成功后可看到红色半透明的区域。</p>
+            <p class="fs-13 text-err">6: 单击生成成功的红色半透明的区域可删除该区域链接，重新生成。</p>
+            <p class="fs-13">7: 所有区块链接生成成功后，<span class="text-err">点击[复制代码]按钮</span>，提示代码复制成功，即可复制到网站的后台添加代码测试。</p>
+            <p class="fs-13">8: 如对工具使用有疑问，请<span class="text-err">RTX咨询技术阮继潜</span>。</p>
+        </article>
+    </div>
+    
     <div class="img-wrap J_banner_link_code" id="J_img_wrap">
         <div id="draggable">
             <div class="dragresize"></div>
@@ -115,34 +101,13 @@
         <img alt="" src="" class="J_banner" onload="this.style.opacity='1'" style="width: 100%;">
     </div>
     <div id="J_code">
-        <div class="banner-link-code J_banner_link_code" style="position: relative;">
+        <div class="banner-link-code J_banner_link_code" style="position: relative;width: 1200px;margin-left: auto;margin-right: auto;overflow: hidden;height: auto;">
             <img alt="banner" class="J_banner" onload="this.style.opacity='1'" style="width: 100%;display: block;">
         </div>
     </div>
     <span class="use-help J_read"><i class="question">?</i>使用帮助</span>
-    <div class="article-block J_stop_scroll J_article">
-        <span class="close J_close">+</span>
-        <article>
-            <h2 class="text-center">头部代码工具使用说明</h2>
-            <p class="fs-13">1: 使用Google Chrome 浏览器打开页面，按住F12键进入开发者调试模式，并使用移动端调试模式，切换当前设备模式为<span class="text-err">iphone6</span>。</p>
-            <p class="fs-13"><span class="text-err">2: 目前仅支持以下几个平台Yoshop m版、Zaful m版、Rosewholesale m版、Twinkledeals m版。</span></p>
-            <p class="fs-13">3: 选择应用程序，进入代码生成界面。</p>
-            <p class="fs-13">4: 在图片地址输入框中输入图片的http 地址链接，等待图片加载完成<span class="text-err">支持gif,jpg,jpeg.png,webp等多种图片格式</span>。</p>
-            <p class="fs-13 text-err">5:图片文件大小不可过大，否则影响网页加载速度，尽量控制在500KB之内</p>
-            <p class="fs-13">6: 鼠标拖动图片上的区块，并缩放区块宽度和高度，将区块移动到对应的位置，可设置区块的形状，为方形和圆形，也可对区块进行旋转操作,<span class="text-err">不可将区块位置移动到图片之外的范围</span></p>
-            <p class="fs-13">7: 在跳转链接输入框中输入区块的跳转链接。</p>
-            <p class="fs-13">8: 点击添加链接按钮，即可成功生成链接，多次点击可生成多个链接，生成成功后可看到红色半透明的区域。</p>
-            <p class="fs-13 text-err">9: 单击生成成功的红色半透明的区域可删除该区域链接，重新生成。</p>
-            <p class="fs-13">10: 所有区块链接生成成功后，<span class="text-err">点击[复制代码]按钮</span>，提示代码复制成功，即可复制到网站的后台添加代码测试。</p>
-            <p class="fs-13">11: 如对工具使用有疑问，请<span class="text-err">RTX咨询技术阮继潜</span>。</p>
-        </article>
-    </div>
-    <!-- <script type="text/javascript" src="codeGenarent/dist/main.js?v=2017102704"></script> -->
-    <script type="text/javascript">
-        $(function(){
-            
-        })
-    </script>
+    <span class="tool-panpel-btn J_tool_panpel_btn"><i class="question">*</i>工具面板</span>
+    <script type="text/javascript" src="codeGenarent/dist/main.js?v=2018080301"></script>
 </body>
 
 </html>

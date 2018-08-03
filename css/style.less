@@ -37,8 +37,8 @@ body{font: 12px/1.5 Microsoft YaHei;background-color: #f2f2f2;}
 }
 .btn-block{display: block;width: 100%;}
 .fs-13{font-size: 13px;}
-.fs-12{font-size: 12px; }
-.fs-14{font-size: 14px; }
+.fs-12{font-size: 12px!important; }
+.fs-14{font-size: 14px!important; }
 .fs-16{font-size: 16px; }
 input::-webkit-input-placeholder {
    color:#cec8c8;
@@ -190,6 +190,81 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 0;
     cursor: pointer;
 }
+.chk_3{
+    display: none;
+}
+.chk_3 + label {
+    background-color: #fafbfa;
+    padding: 9px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    width: 42px;
+    height: 15px;
+}
+
+.chk_3  + label:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    -webkit-transition: box-shadow 0.1s ease-in;
+    transition: box-shadow 0.1s ease-in;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    box-shadow: inset 0 0 0 0 #eee, 0 0 1px rgba(0,0,0,0.4);
+}
+
+.chk_3  + label:before {
+    content: ' ';
+    position: absolute;
+    background: white;
+    top: 1px;
+    left: 1px;
+    z-index: 999999;
+    width: 15px;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    height: 15px;
+    border-radius: 100px;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.05), 0 0px 1px rgba(0,0,0,0.3);
+}
+
+.chk_3:active + label:after {
+    box-shadow: inset 0 0 0 20px #eee, 0 0 1px #eee;
+}
+
+.chk_3:active + label:before {
+    width: 37px;
+}
+
+.chk_3:checked:active + label:before {
+    width: 37px;
+    left: 20px;
+}
+
+.chk_3  + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.chk_3:checked + label:before {
+    content: ' ';
+    position: absolute;
+    left: 26px;
+    border-radius: 100px;
+}
+
+.chk_3:checked + label:after {
+    content: ' ';
+    font-size: 1.5em;
+    position: absolute;
+    background: #5594fd;
+    box-shadow: 0 0 1px #2d78f4;
+}
 
 #rangeRotate {
     display: block;margin-top: 9px;
@@ -203,7 +278,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 #draggable {
     width: 75px;
-    z-index: 5;display: none;
+    z-index: 3;display: none;
     height: 75px;
     background-color: rgba(0, 0, 0, 0.78);
     color: #fff;
@@ -314,7 +389,7 @@ input[type="range"]::-webkit-slider-thumb {
 .article-block{
     position: fixed;left:0;right: 0;top:0;bottom: 0;background: #1c1c1c;z-index: 11;transform: translate3d(0,-120%,0);
     visibility: hidden; will-change:transform;
-    padding: 15px;opacity: 1;color:#fff;transition: all 0.8s cubic-bezier(0.455, 0.03, 0.215, 1.33) ;opacity: 1;
+    padding: 15px;opacity: 1;color:#fff;transition: all 0.8s cubic-bezier(0.455, 0.03, 0.215, 1.33);
 }
 .article-block.enter{
     transform: translate3d(0,0,0);visibility: visible;
@@ -330,7 +405,12 @@ input[type="range"]::-webkit-slider-thumb {
     color: #eee;
     right: 15px;
     top: 5px;
-    transform: rotate(45deg);
+    outline: none;
+    transform: rotate(45deg);will-change:transform;
+    cursor: pointer;transition: all 0.15s linear;
+    &:hover{
+        transform: rotate(90deg);
+    }
 }
 @keyframes fadeInUp {
   0% {
@@ -353,7 +433,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .use-help{
     position: fixed;
-    z-index: 2;
+    z-index: 5;
     right: 15px;
     width: 100px;
     height: 36px;
@@ -363,10 +443,36 @@ input[type="range"]::-webkit-slider-thumb {
     color: #FFF;
     font-size: 15px;
     text-align: center;
+    cursor: pointer;
     border-radius: 3px;
-    text-decoration: underline;
+    text-decoration: none;
     .question{margin-top: 10px;}
+}
 
+.tool-panpel-btn{
+    position: fixed;
+    z-index: 5;
+    right: 130px;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    background: rgba(8, 8, 8, 0.79);
+    bottom: 15px;
+    color: #FFF;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    text-decoration: none; 
+    transition: all 0.2s linear;
+    opacity: 0;visibility: hidden;
+    .question{margin-top: 10px; line-height: 18px;}
+    &.enter{
+        opacity:0;visibility: hidden;
+    }
+    &.leave{
+        opacity: 1;visibility: visible;
+    }
 }
 
 .question{
@@ -410,13 +516,52 @@ input[type="range"]::-webkit-slider-thumb {
 
 .platform-pc{
     .main-app-wrap{
-        position: fixed;
-        right: 0;top:0;z-index: 1;
-        bottom: 0;background: #FFF;width: 400px;
-        box-shadow:0px 0 13px 0px #bdbdbd;
-        height: auto;
+        
     }
     .form-group{margin-bottom: 20px;}
-    .rotate-form-group{margin-bottom: 40px;}
-    .copy-form-group{margin-bottom: 30px;}
+    .rotate-form-group{margin-bottom: 30px;}
+    .copy-form-group{margin-bottom: 20px;}
+    
+    .tool-wrap{
+        position: fixed;
+        right: 0;top:0;z-index:4;width: 320px;
+        bottom: 0;background: #FFF;
+        box-shadow:8px 0 20px -2px #7b7b7b;
+        height: auto;
+        opacity: 1;color:#fff;transition: all 0.5s cubic-bezier(0.455, 0.03, 0.215, 1.33);
+        &.leave{
+            transform: translate3d(100%, 0 ,0);opacity: 0.4;visibility: hidden;
+        }
+        &.enter{
+            transform: translate3d(0,0,0);visibility: visible;
+        }
+    }
+    .main-app-wrap{height: auto;}
+    .article-block{left: inherit;right: 0;width: 320px;}
+
+    .msg-content{
+        position: fixed;
+        left: inherit;
+        right: 15px;
+        width: 290px;
+        background: rgba(51, 51, 51, 0.95);
+        z-index: 10;
+        top: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        box-shadow: 0 0 19px -3px #d6c8c8;
+        will-change:transform;
+        border-radius: 4px;transform: translate3d(120%,0,0);
+        visibility: hidden;
+        transition: all 0.7s cubic-bezier(0.455, 0.03, 0.215, 1.33);opacity: 0;
+        &.enter{
+            opacity: 1;visibility: visible;transform: translate3d(0,0,0);
+        }
+    }
+    .img-wrap{width: 1200px;}
+    .tool-close{top: -2px; right: 10px;color:#000;}
+}
+
+.is-blank-form{
+    .checkbox-wrap{display: inline-block;vertical-align: top;margin-top: 3px;}
 }
