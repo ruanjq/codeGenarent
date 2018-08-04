@@ -390,6 +390,7 @@ input[type="range"]::-webkit-slider-thumb {
     position: fixed;left:0;right: 0;top:0;bottom: 0;background: #1c1c1c;z-index: 11;transform: translate3d(0,-120%,0);
     visibility: hidden; will-change:transform;
     padding: 15px;opacity: 1;color:#fff;transition: all 0.8s cubic-bezier(0.455, 0.03, 0.215, 1.33);
+    a{color:#D86465;text-decoration: underline;}
 }
 .article-block.enter{
     transform: translate3d(0,0,0);visibility: visible;
@@ -405,6 +406,7 @@ input[type="range"]::-webkit-slider-thumb {
     color: #eee;
     right: 15px;
     top: 5px;
+
     outline: none;
     transform: rotate(45deg);will-change:transform;
     cursor: pointer;transition: all 0.15s linear;
@@ -564,4 +566,46 @@ input[type="range"]::-webkit-slider-thumb {
 
 .is-blank-form{
     .checkbox-wrap{display: inline-block;vertical-align: top;margin-top: 3px;}
+}
+
+.content-wrap{
+    white-space: nowrap;font-size: 0;height: 100%;
+    max-width: 640px;margin-left: auto;margin-right: auto;
+    &:before{
+        content:"";
+        display: inline-block;vertical-align: middle;
+        width: 1px;height: 100%;
+    }
+    .inner{
+        display: inline-block;vertical-align: middle;
+        width: 100%;margin-left: -1px;margin-top: -80px;
+    }
+    h1{
+        color:#333;font-size: 32px;text-align: center;
+        line-height: 1;padding-top: 10px;padding-bottom: 10px;
+    }
+    ul{margin-top: 100px;}
+    li{width: 50%;text-align: center;
+        animation:fadeInUp 0.8s both cubic-bezier(0.455, 0.03, 0.215, 1.33) ;
+    }
+    li a{
+        display:flex;
+        margin-left: auto;margin-right: auto;
+        width: 120px;height: 120px;
+        background:rgba(0, 0, 0, 0.76);
+        border-radius: 50%;
+        font-size: 19px;
+        text-align: center;justify-content: center;align-items: center;
+        text-decoration: none;cursor: pointer;
+        color:#FFF;
+        span{
+            display: block;
+        }
+        .platform-1{
+            font-style: normal;
+        }
+        .platform-2{
+            font-style: normal;font-size: 16px;
+        }
+    }
 }

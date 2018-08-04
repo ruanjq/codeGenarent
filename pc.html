@@ -3,17 +3,58 @@
 
 <head>
     <base href="/codeGenarent">
-    <title>图片链接代码生成工具</title>
+    <title>图片链接代码生成工具--pc平台</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta content="图片链接代码生成工具" />
+    <meta content="图片链接代码生成工具--pc平台" />
     <link rel="stylesheet" type="text/css" href="codeGenarent/css/style.min.css?v=2018080301">
     <script type="text/javascript" src="codeGenarent/dist/jquery-1.7.2.min.js?v=2018080301"></script>
     <script type="text/javascript" src="codeGenarent/dist/plugins.js?v=2018080301"></script>
 </head>
 
 <body>
+    <script type="text/javascript">
+        window.onresize = function(){
+            setTimeout(function(){
+                platformCheck();
+            })
+        }
+        platformCheck();
+        function platformCheck(){
+            if(!IsPC()){
+                if(!document.getElementById("J_mobile")){
+                    var platformDiv = document.createElement("div");
+                    platformDiv.classList = "platform-error J_stop_scroll";
+                    platformDiv.id = "J_mobile";
+                    platformDiv.innerHTML = '<h1 class="text-err">头部代码工具（Desktop 平台）不适用移动端模式,请按F12键切换为桌面浏览器模式</h1>';
+                    document.body.appendChild(platformDiv);
+                }else{
+                     document.getElementById("J_mobile").style.display = "flex";
+                }
+            }else{
+                if(document.getElementById("J_mobile")){
+                    document.getElementById("J_mobile").style.display = "none";
+                }
+            }
+        }
+      
+
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                    "SymbianOS", "Windows Phone",
+                    "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+    </script>
     <div class="tool-wrap J_tool_wrap">
         <span class="close tool-close J_close_tool">+</span>
         <div class="main-app-wrap" id="J_main_wrap">
@@ -85,7 +126,8 @@
             <p class="fs-13">5: 点击添加链接按钮，即可成功生成链接，多次点击可生成多个链接，生成成功后可看到红色半透明的区域。</p>
             <p class="fs-13 text-err">6: 单击生成成功的红色半透明的区域可删除该区域链接，重新生成。</p>
             <p class="fs-13">7: 所有区块链接生成成功后，<span class="text-err">点击[复制代码]按钮</span>，提示代码复制成功，即可复制到网站的后台添加代码测试。</p>
-            <p class="fs-13">8: 如对工具使用有疑问，请<span class="text-err">RTX咨询技术阮继潜</span>。</p>
+            <p class="fs-13">8: 转到<span class="text-err"> <a href="/codeGenarent/wap.html">图片链接代码生成工具-- Mobile平台</a></span></p>
+            <p class="fs-13">9: 如对工具使用有疑问，请<span class="text-err">RTX咨询技术阮继潜</span>。</p>
         </article>
     </div>
     
